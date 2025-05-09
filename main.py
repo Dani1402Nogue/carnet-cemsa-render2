@@ -38,7 +38,9 @@ def descargar():
 
     except Exception as e:
         result = f"Error: {str(e)}"
-
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
     driver.quit()
     return result
 
